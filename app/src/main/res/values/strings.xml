@@ -2,4 +2,7 @@
     <string name="app_name">PokeapiApp</string>
     <string name="height">Height</string>
     <string name="weight">weight</string>
+    <string name="pokemonName">Pokemon name</string>
+    <string name="pokemonType1">Pokemon name</string>
+    <string name="pokemonType2">Pokemon name</string>
 </resources>
