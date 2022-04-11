@@ -14,20 +14,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         initializeTypeMap()
         setContentView(R.layout.activity_main)
-
+        changePokemon("rayquaza")
+        /*
         try {
-            changePokemon()
+            changePokemon("lucario")
+
         } catch (e: Exception) {
+            println("\n\n")
             println(e)
-        }
+            println("\n\n")
+        }*/
     }
 
-    private fun changePokemon() {
-        val pokemonFound = queryPokemon("lucario")
+    private fun changePokemon(pokemonName :String ) {
+        val pokemonFound = queryPokemon(pokemonName)
         val pokemonImg = findViewById<ImageView>(R.id.pokemonImg)
-        findViewById<TextView>(R.id.heightText).setText("hbjbbbuh")
+
         val imgUri = Uri.parse(pokemonFound.imgSrc)
         val imgType = findViewById<ImageView>(R.id.pokemonType1)
+
         val imgTypeUri = Uri.parse(pokemonFound.types[0])
         imgType.setImageURI(imgTypeUri)
 
@@ -36,6 +41,9 @@ class MainActivity : AppCompatActivity() {
             val imgTypeUri2 = Uri.parse(pokemonFound.types[1])
             imgType2.setImageURI(imgTypeUri2)
         }
+        findViewById<TextView>(R.id.heightText).setText(pokemonFound.size.height)
+        findViewById<TextView>(R.id.weightText).setText(pokemonFound.size.weight)
+
         pokemonImg.setImageURI(imgUri)
     }
 }
